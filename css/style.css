@@ -106,7 +106,7 @@ a[data-toggle="collapse"] {
 }
 
 #sidebarCollapse {
-  background-image: url(/css/icons/grid.png);
+  background-image: url(../css/icons/grid.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-color: white;
