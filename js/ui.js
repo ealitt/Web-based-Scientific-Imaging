@@ -19,7 +19,6 @@ function initSlider(){
         $('#threshold').toggle("slow");
     });
   });
-  console.log("initialized?");
 }
 
 function tools(){
