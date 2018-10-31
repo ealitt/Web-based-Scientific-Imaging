@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="css/jquery/jquery-ui.css" media="screen">
+    <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <!-- experimental tiff viewer -->
     <!-- <script src="js/tiff.min.js"></script> -->
 
     <script src="js/ui.js"></script>
-    <script src="css/style.css"></script>
-    <script src="js/image-picker.min.js"></script>
-    <script src="css/image-picker.css"></script>
+    <script type="text/javascript" src="js/jquery.dropper.js"></script>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
           <div id="wrapperContainer">
             <div id="thumbnailContainer">
               <!-- <select id="image-picker"> -->
-              <output id="result"/>
+                <output id="result"/>
               <!-- </select> -->
             </div>
           </div>
@@ -60,10 +60,17 @@
           </nav>
 
           <div id="input-image" class="displayedImage">
-            <img id="edited">
+            <img id="edited" class="dropper">
+            <canvas id="placeholder"></canvas>
+            <div id="controls">
+              <div id="swatch"></div>
+              <div id="threshold" style="background: white;"></div>
+            </div>
           </div>
       </div>
   </div>
+
+<script async src="js/asm.js/opencv.js"></script>
 
 </body>
 </html>
