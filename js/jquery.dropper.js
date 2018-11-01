@@ -48,13 +48,9 @@
 				var imgElement = $(this)[0];
 				var containerElement = ($(this).parent())[0];
 				if(!(document.getElementById("placeholder") == null)){
-					// var oldCanv = document.getElementById("editedImage");
-					// document.removeChild(oldCanv);
 					$('canvas').remove();
 				}
 				if(!(document.getElementById("editedImage") == null)){
-					// var oldCanv = document.getElementById("editedImage");
-					// document.removeChild(oldCanv);
 					$('canvas').remove();
 				}
 				var canvasElement = document.createElement('canvas');

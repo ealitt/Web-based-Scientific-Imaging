@@ -103,6 +103,7 @@ a[data-toggle="collapse"] {
   /* put the height and width of your image here */
   height: 40px;
   width: 40px;
+  padding-right: 60px;
   border: none;
 }
 
@@ -142,6 +143,16 @@ a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
+
+/* ---------------------------------------------------
+    TABS
+----------------------------------------------------- */
+
+#tabs {
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -225,7 +236,7 @@ a.article:hover {
   height: auto;
 }
 
-#controls {
+.controls {
   width: 400px;
   float: center;
   margin-left: auto;
@@ -252,4 +263,23 @@ a.article:hover {
   float:right;
   margin-left: auto;
   margin-right: auto;
+}
+
+#firstRow {
+  display: block;
+  width: 400px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#secondRow {
+  display: block;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#detect {
+  float: right;
 }
