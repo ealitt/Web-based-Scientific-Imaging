@@ -21,15 +21,8 @@ function initSlider(){
   });
 }
 
-function tools(){
-  $( "#threshold" ).slider({
-    value: 0,
-    animate:"fast",
-    orientation: "horizontal",
-    slide: function( event, ui ) {
-      console.log($( "#threshold" ).slider( "value" ));
-    }
-  });
+function initProcessed() {
+    document.getElementById("processed-tab").click();
 }
 
 function imageSelect(imgVal) {
@@ -38,12 +31,6 @@ function imageSelect(imgVal) {
 }
 
 function uploadFile() {
-  // let source = document.getElementById('upload');
-  //
-  // source.addEventListener('change', (e) => {
-  // edited.src = URL.createObjectURL(e.target.files[0]);
-  // }, false);
-  // loadImage(edited.src);
   if(window.File && window.FileList && window.FileReader)
   {
       $('#files').on("change", function(event) {
@@ -63,9 +50,10 @@ function uploadFile() {
                                 "title='preview image' onclick=imageSelect(image_" + imageNum + ") />";
                         output.insertBefore(div,null);
                         if(imageNum == 0){
-                          let selectedImage = document.getElementById("edited");
+                          // let selectedImage = document.getElementById("edited");
                           let defaultImage = document.getElementById("image_0");
-                          selectedImage.src = defaultImage.src;
+                          // selectedImage.src = defaultImage.src;
+                          imageSelect(defaultImage);
                         }
                         imageNum = imageNum + 1;
                   });
@@ -89,6 +77,18 @@ function uploadFile() {
   }
 }
 
+function tools(){
+  $( "#threshold" ).slider({
+    value: 0,
+    animate:"fast",
+    orientation: "horizontal",
+    slide: function( event, ui ) {
+      console.log($( "#threshold" ).slider( "value" ));
+    }
+  });
+}
+
+
 $('#files').on("click", function() {
     $('.thumbnail').parent().remove();
     $('result').hide();
@@ -101,16 +101,6 @@ $('#clear').on("click", function() {
     $('#files').val("");
     $(this).hide();
 });
-
-// $('#ex1').each(function(){
-//   $(this).slider({
-//   	formatter: function(value) {
-//   		return 'Current value: ' + value;
-//   	}
-//   })
-// });
-
-// $('.image-picker').imagepicker();
 
 window.onload = function() {
   initSlider();
