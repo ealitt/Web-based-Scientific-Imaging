@@ -21,7 +21,7 @@
     <!-- <script src="js/tiff.min.js"></script> -->
 
     <script src="js/ui.js"></script>
-    <!-- <script src="js/image-detection.js"></script> -->
+    <script src="js/image-detection.js"></script>
     <script type="text/javascript" src="js/jquery.dropper.js"></script>
 </head>
 
@@ -72,14 +72,16 @@
                           <div id="threshold" style="background: white;"></div>
                         </div>
                         <div id="secondRow">
-                          <button id="detect" type="button" class="btn btn-outline-secondary btn-sm" onclick="initProcessed()">Detect</button>
+                          <button id="detect" type="button" class="btn btn-outline-secondary btn-sm" onclick="initProcessed();processImage();">Detect</button>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div class="tab-pane fade" id="processed" role="tabpanel" aria-labelledby="processed-tab">
-                    <!-- Fill with stuff -->
+                    <div id="processed-image" class="displayedImage">
+                      <canvas id="processed"></canvas>
+                    </div>
                   </div>
                 </div>
 

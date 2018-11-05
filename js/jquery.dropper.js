@@ -28,8 +28,6 @@
 			if(this.tagName !== "IMG") {
 				return this;
 			};
-			// var w = $(this).width();
-			// var h = $(this).height();
 			// Thanks to alistair potts: http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
 			// use load & readystatechange AND this.src=src trick to make sure this always fires after the image is loaded
 
@@ -48,10 +46,10 @@
 				var imgElement = $(this)[0];
 				var containerElement = ($(this).parent())[0];
 				if(!(document.getElementById("placeholder") == null)){
-					$('canvas').remove();
+					$(document.getElementById("placeholder")).remove();
 				}
 				if(!(document.getElementById("editedImage") == null)){
-					$('canvas').remove();
+					$(document.getElementById("editedImage")).remove();
 				}
 				var canvasElement = document.createElement('canvas');
 				canvasElement.id = "editedImage";
