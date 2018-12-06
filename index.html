@@ -17,17 +17,16 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <!-- experimental tiff viewer -->
-    <!-- <script src="js/tiff.min.js"></script> -->
-
     <script src="js/ui.js"></script>
-    <script src="js/image-detection.js"></script>
-    <script type="text/javascript" src="js/jquery.dropper.js"></script>
+    <script src="js/magic-wand.js"></script>
+    <script src="js/magic-wand-ui.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.dropper.js"></script> -->
+    <script src="https://rawgit.com/Tamersoul/magic-wand-js/master/js/magic-wand-min.js"></script>
 </head>
 
-<body>
+
+<!-- <body> -->
   <div class="wrapper">
-      <!-- Sidebar  -->
       <nav id="sidebar">
           <div class="sidebar-header">
               <h3>Image Analyzer</h3>
@@ -66,14 +65,17 @@
                     <div id="input-image" class="displayedImage">
                       <img id="edited" class="dropper">
                       <canvas id="placeholder"></canvas>
-                      <div class="controls">
-                        <div id="firstRow">
-                          <div id="swatch"></div>
-                          <div id="threshold" style="background: white;"></div>
-                        </div>
-                        <div id="secondRow">
-                          <button id="detect" type="button" class="btn btn-outline-secondary btn-sm" onclick="initProcessed();processImage();">Detect</button>
-                        </div>
+                      <canvas id="selectionLayer" onmouseup="onMouseUp.apply(this, arguments)" onmousedown="onMouseDown.apply(this, arguments)" onmousemove="onMouseMove.apply(this, arguments)"></canvas>
+                    </div>
+                    <div class="controls">
+                      <div id="firstRow">
+                        <div id="swatch"></div>
+                        <!-- <div id="threshold" style="background: white;"></div> -->'
+                        <input id="blurRadius" type="text" onchange="onRadiusChange.apply(this, arguments)" style="float: left; width: 20px; margin-right: 10px;"/>
+                        <div id="threshold"></div>
+                      </div>
+                      <div id="secondRow">
+                        <button id="detect" type="button" class="btn btn-outline-secondary btn-sm" onclick="initProcessed();processImage();">Detect</button>
                       </div>
                     </div>
                   </div>
@@ -88,12 +90,8 @@
             </div>
           </div>
 
-
-
       </div>
   </div>
-
-<script async src="js/asm.js/opencv.js"></script>
 
 </body>
 </html>

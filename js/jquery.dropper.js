@@ -7,6 +7,9 @@
 * http://www.opensource.org/licenses/mit-license.php
 * http://www.gnu.org/licenses/gpl.html
 */
+
+var newHeight = 450;
+
 (function($) {
 	$.fn.dropper = function(settings) {
 
@@ -33,12 +36,8 @@
 
 			$(this).bind('load readystatechange', function(e){
 				// Get width & height of image
-				// var h = 350;
-				// var w = (h / $(this).height()) * $(this).width();
-
 				var w = $(this).width();
 				var h = $(this).height();
-				var newHeight = 350;
 				var newWidth = (newHeight / $(this).height()) * $(this).width();
 
 				// Use DOM methods to create the canvas element
@@ -47,17 +46,19 @@
 				var containerElement = ($(this).parent())[0];
 				if(!(document.getElementById("placeholder") == null)){
 					$(document.getElementById("placeholder")).remove();
+					document.getElementById("dropperLayer").style.display = "block";
+					document.getElementById("selectionLayer").style.display = "block";
 				}
-				if(!(document.getElementById("editedImage") == null)){
-					$(document.getElementById("editedImage")).remove();
-				}
-				var canvasElement = document.createElement('canvas');
-				canvasElement.id = "editedImage";
+				var canvasElement = document.getElementById("dropperLayer");
+				var canvasSelection = document.getElementById("selectionLayer");
+
 				canvasElement.width = w;
 				canvasElement.height = h;
+				canvasSelection.width = w;
+				canvasSelection.height = h;
+				// canvasElement.setAttribute = 'onmouseup="onMouseUp.apply(this, arguments)" onmousedown="onMouseDown.apply(this, arguments)" onmousemove="onMouseMove.apply(this, arguments)'
 				containerElement.insertBefore(canvasElement,imgElement);
 				// Get canvas context, draw canvas, get image data
-				// if fails we don't support canvas, so give up
 				try {
 					var canvasContext = canvasElement.getContext('2d');
 					canvasContext.src = canvasContext.drawImage(imgElement,0,0,newWidth,newHeight);
@@ -102,7 +103,6 @@
 					var canvasIndex = canvasIndexFromEvent(e,$(this).width(),$(this).offset());
 					var color = colorFromData(canvasIndex,imageData.data);
 					config.clickCallback(color);
-					console.log(document.getElementById("swatch").style.backgroundColor);
 					return false;
 				});
 			}); // .load()
@@ -155,5 +155,4 @@
 		};
 
   };
-
 })(jQuery);

@@ -182,6 +182,7 @@ a.article:hover {
 }
 
 
+
 /* ---------------------------------------------------
     Image Upload
 ----------------------------------------------------- */
@@ -209,51 +210,50 @@ a.article:hover {
   padding-top: 10px;
 }
 
-#edited {
+.displayedImage {
+  float: center;
   display: block;
+  margin: auto;
+}
+
+#edited {
+  position: absolute;
   margin-left: auto;
   margin-right: auto;
   width: auto;
-  height: 350px;
+  height: 450px;
+  border: 2px solid grey;
+  border-radius: 2px;
   display: none;
 }
 
 #placeholder {
-  display: block;
+  position: absolute;;
   margin-left: auto;
   margin-right: auto;
-  width: 467px;
-  height: 360px;
+  width: 600px;
+  height: 450px;
   border: 2px solid grey;
   border-radius: 2px;
 }
 
-#editedImage {
-  display: block;
+#selectionLayer {
+  position: absolute;
+  display: none;
   margin-left: auto;
   margin-right: auto;
   width: auto;
   height: auto;
+  /* border: 2px solid grey;
+  border-radius: 2px; */
 }
 
 .controls {
   width: 400px;
-  float: center;
+  float: right;
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
-}
-
-#swatch {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #000;
-    /* text-align: center;
-    veritcal-align: center; */
-    display: block;
-    float: left;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #threshold {
@@ -267,7 +267,6 @@ a.article:hover {
 
 #firstRow {
   display: block;
-  width: 400px;
   height: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -275,7 +274,6 @@ a.article:hover {
 
 #secondRow {
   display: block;
-  width: 400px;
   margin-left: auto;
   margin-right: auto;
 }
