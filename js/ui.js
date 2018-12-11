@@ -4,11 +4,6 @@ $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
-    $('.dropper').dropper({
-      clickCallback: function(color) {
-        $('#swatch').css('background-color','#'+color.rgbhex);
-      }
-    });
 });
 
 function initSlider(){
@@ -26,8 +21,18 @@ function initProcessed() {
 }
 
 function imageSelect(imgVal) {
+
   var selectedImage = document.getElementById("edited");
   selectedImage.src = imgVal.src;
+
+  var containerElement = ($(this).parent())[0];
+  if(!(document.getElementById("placeholder") == null)){
+    $(document.getElementById("placeholder")).remove();
+    document.getElementById("selectionLayer").style.display = "block";
+    document.getElementById("edited").style.display = "block";
+  }
+
+  initCanvas(selectedImage);
 }
 
 function uploadFile() {
@@ -103,7 +108,8 @@ $('#clear').on("click", function() {
 });
 
 window.onload = function() {
-  initSlider();
+  // initSlider();
   uploadFile();
   tools();
+  initMagicWand();
 }
